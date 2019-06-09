@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {TouchableOpacity, ActivityIndicator, Alert, Platform, StyleSheet, Text, View} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,12 +18,34 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+
+
+  handlePress = async () => {
+    fetch('https://jsonplaceholder.typicode.com/users', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+  })
+      .then((response) => response.json())
+      .then((responseJson) => {
+   Alert.alert("Author name at 0th index:  " + responseJson[0].name);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+
+
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.welcome}>Hello, Arpit</Text>
+        <TouchableOpacity onPress={this.handlePress.bind(this)}>
+           <Text style={{paddingTop: 50, paddingLeft: 50, color: '#FF0000'}}> Click me to see the name </Text>
+        </TouchableOpacity>
       </View>
     );
   }
