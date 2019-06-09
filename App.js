@@ -19,33 +19,53 @@ const instructions = Platform.select({
 type Props = {};
 export default class App extends Component<Props> {
 
+  constructor(props){
+     super(props);
+     this.state = {
+       data: []
+    }
+   }
 
-  handlePress = async () => {
-    fetch('https://jsonplaceholder.typicode.com/users', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        }
-  })
-      .then((response) => response.json())
-      .then((responseJson) => {
-   Alert.alert("Author name at 0th index:  " + responseJson[0].name);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+   getData(){
+       fetch('https://jsonplaceholder.typicode.com/users', {
+           method: 'GET',
+           headers: {
+             'Content-Type': 'application/json',
+           }}).then((response) => response.json()).then((responseJson) => {
+         this.setState({data: responseJson})
+        }).catch((error) => {
+             console.error(error);
+        });
+   }
+
+     componentDidMount(){
+       this.getData();
+     }
+
+  alertItemName = (item) => {
+       alert(item.name)
   }
-
-
 
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Hello, Arpit</Text>
-        <TouchableOpacity onPress={this.handlePress.bind(this)}>
-           <Text style={{paddingTop: 50, paddingLeft: 50, color: '#FF0000'}}> Click me to see the name </Text>
-        </TouchableOpacity>
+      <View style={styles.container}>{
+// <Text style={styles.welcome}>Hello, Arpit</Text>
+
+    this.state.data.map((item, index) => (
+       <TouchableOpacity
+          key = {item.id}
+          style = {styles.listContainer}
+          onPress = {() => this.alertItemName(item)}>
+          <Text style = {styles.text}>
+             {item.name}
+          </Text>
+       </TouchableOpacity>
+    ))
+        // <TouchableOpacity onPress={this.handlePress.bind(this)}>
+        //    <Text style={{paddingTop: 50, paddingLeft: 50, color: '#FF0000'}}> Click me to see the name </Text>
+        // </TouchableOpacity>
+      }
       </View>
     );
   }
@@ -58,6 +78,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  listContainer: {
+     padding: 10,
+     marginTop: 3,
+     backgroundColor: '#d9f9b1',
+     alignItems: 'center',
+  },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
@@ -67,5 +93,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  text: {
+     color: '#4f603c'
   },
 });

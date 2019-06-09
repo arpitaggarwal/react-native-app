@@ -25,3 +25,7 @@ $ devices list
 ```
 adb connect 192.168.71.101:5555
 ```
+
+# REST API
+
+https://jsonplaceholder.typicode.com/users
