@@ -6,8 +6,10 @@
  * @flow
  */
 
-import React, {Component} from 'react';
-import {TouchableOpacity, ActivityIndicator, Alert, Platform, StyleSheet, Text, View} from 'react-native';
+import React, {Component, Fragment} from 'react';
+import {TouchableOpacity, ActivityIndicator, Alert, Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
+import ImageScreen from './image-screen.js'
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -49,24 +51,36 @@ export default class App extends Component<Props> {
 
   render() {
     return (
-      <View style={styles.container}>{
-// <Text style={styles.welcome}>Hello, Arpit</Text>
+<Fragment>
 
-    this.state.data.map((item, index) => (
-       <TouchableOpacity
-          key = {item.id}
-          style = {styles.listContainer}
-          onPress = {() => this.alertItemName(item)}>
-          <Text style = {styles.text}>
-             {item.name}
-          </Text>
-       </TouchableOpacity>
-    ))
-        // <TouchableOpacity onPress={this.handlePress.bind(this)}>
-        //    <Text style={{paddingTop: 50, paddingLeft: 50, color: '#FF0000'}}> Click me to see the name </Text>
-        // </TouchableOpacity>
-      }
+     <ImageScreen />
+
+
+          <View style={styles.container}>
+    <ScrollView>
+
+            {
+    //
+
+        this.state.data.map((item, index) => (
+           <TouchableOpacity
+              key = {item.id}
+              style = {styles.listContainer}
+              onPress = {() => this.alertItemName(item)}>
+              <Text style = {styles.text}>
+                 {item.name}
+              </Text>
+           </TouchableOpacity>
+        ))
+            // <TouchableOpacity onPress={this.handlePress.bind(this)}>
+            //    <Text style={{paddingTop: 50, paddingLeft: 50, color: '#FF0000'}}> Click me to see the name </Text>
+            // </TouchableOpacity>
+          }
+        </ScrollView>
       </View>
+
+      </Fragment>
+
     );
   }
 }
@@ -95,6 +109,13 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   text: {
-     color: '#4f603c'
+     flexDirection: 'row',
+     justifyContent: 'space-between',
+     alignItems: 'center',
+     padding: 30,
+     margin: 2,
+     borderColor: '#2a4944',
+     borderWidth: 1,
+     backgroundColor: '#d2f7f1'
   },
 });
