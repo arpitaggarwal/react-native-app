@@ -9,7 +9,7 @@
 import React, {Component, Fragment} from 'react';
 import {TouchableOpacity, ActivityIndicator, Alert, Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
 import ImageScreen from './image-screen.js'
-
+import Routes from './routes/Routes.js'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -55,7 +55,7 @@ export default class App extends Component<Props> {
 
      <ImageScreen />
 
-
+<Routes />
           <View style={styles.container}>
     <ScrollView>
 
