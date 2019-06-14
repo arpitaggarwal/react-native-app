@@ -36,6 +36,12 @@ react-native start
 
 - Nuclide
 
+# Uninstall App from Device Using ADB
+
+```
+adb uninstall com.propertyfinder
+```
+
 
 # REST API
 
