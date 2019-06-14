@@ -26,6 +26,17 @@ $ devices list
 adb connect 192.168.71.101:5555
 ```
 
+# Build React Native Metro
+
+```
+react-native start
+```
+
+# Atom Plugin for React Native
+
+- Nuclide
+
+
 # REST API
 
 https://jsonplaceholder.typicode.com/users
