@@ -48,6 +48,20 @@ adb uninstall com.propertyfinder
 https://jsonplaceholder.typicode.com/users
 
 
+# Change Application Name
+
+- Go to `android/app/src/main/res/values`
+- Edit `strings.xml`
+
+# Change Application Icon
+
+- Generate Icons from https://makeappicon.com/
+- Drop it in `android/app/src/main/res`
+
+# Change Any Application Setting
+
+- Go to `android/app/src/main`
+- Edit `AndroidManifest.xml`
 
 # References:
 
