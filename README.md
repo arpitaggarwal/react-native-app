@@ -46,3 +46,9 @@ adb uninstall com.propertyfinder
 # REST API
 
 https://jsonplaceholder.typicode.com/users
+
+
+
+# References:
+
+- https://alligator.io/react/react-native-navigation/
