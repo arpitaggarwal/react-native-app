@@ -9,9 +9,9 @@ export class About extends Component {
       <View style={styles.container}>
 
          <Button
-           title="Go to Home Page"
+           title="Go to Initializing Page"
            onPress={() =>
-             this.props.navigation.navigate('Home')
+             this.props.navigation.navigate('Initializing')
            }
          />
        </View>
@@ -22,10 +22,9 @@ export class About extends Component {
 export default About
 
 const styles = StyleSheet.create({
-   container: {
-     flex: 1,
-     backgroundColor: '#fff',
-     alignItems: 'center',
-     justifyContent: 'center',
-   },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
  });

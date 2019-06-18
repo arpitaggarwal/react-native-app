@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 import Home from '../screens/Home';
 import About from '../screens/About';
+import Initializing from '../screens/Initializing';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import IconWithBadge from '../icons/IconWithBadge';
 import HomeIconWithBadge from '../icons/HomeIconWithBadge';
 
 
-const AppNavigation = createStackNavigator({
-  Home: { screen: Home },
+const AppNavigationStack = createStackNavigator({
   About: { screen: About},
+  Initializing: { screen: Initializing },
 });
 
 const TabNavigator = createBottomTabNavigator({
   Home: Home,
-  About: About,
+  About: AppNavigationStack,
 },
   {
     defaultNavigationOptions: ({ navigation }) => ({
