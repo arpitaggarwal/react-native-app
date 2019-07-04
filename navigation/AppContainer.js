@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer, createBottomTabNavigator, createSwitchNavigator } from 'react-navigation';
 import Home from '../screens/Home';
 import About from '../screens/About';
 import Initializing from '../screens/Initializing';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import IconWithBadge from '../icons/IconWithBadge';
 import HomeIconWithBadge from '../icons/HomeIconWithBadge';
+
+import SplashScreen from '../screens/SplashScreen';
 
 
 const AppNavigationStack = createStackNavigator({
@@ -43,6 +45,15 @@ const TabNavigator = createBottomTabNavigator({
   }
 );
 
-const AppContainer = createAppContainer(TabNavigator);
+
+
+const RootNavigator = createSwitchNavigator({
+  App: TabNavigator,
+  Splash: SplashScreen
+}, {
+  initialRouteName: 'Splash'
+});
+
+const AppContainer = createAppContainer(RootNavigator);
 
 export default AppContainer;
