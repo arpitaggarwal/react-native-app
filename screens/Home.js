@@ -1,13 +1,14 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import ListViewScreen from '../list-view-screen.js'
+
+import ExpandableList from './expandable_list.js'
 
 export class Home extends Component {
   render() {
     return (
+      <ExpandableList />
 
-       <ListViewScreen />
 
     //   <View style={styles.container}>
      //

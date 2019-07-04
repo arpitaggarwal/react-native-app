@@ -5,7 +5,7 @@ import {
   StyleSheet,
   AsyncStorage
 } from 'react-native'
-
+import ListViewScreen from '../list-view-screen.js'
 //import { goToAuth, goHome } from './Navigation'
 
 //import { USER_KEY } from './config'
@@ -28,9 +28,10 @@ export default class Initializing extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Loading</Text>
-      </View>
+         <ListViewScreen />
+      // <View style={styles.container}>
+      //   <Text style={styles.welcome}>Loading</Text>
+      // </View>
     )
   }
 }
@@ -42,6 +43,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center' 
+    alignItems: 'center'
   }
 })
