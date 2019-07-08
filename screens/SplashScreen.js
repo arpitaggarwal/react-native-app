@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const FIVE_SECONDS = 5000;
+const TWO_SECONDS = 2000;
 
 export default class SplashScreen extends React.Component {
   componentDidMount() {
     // When mounted, wait one second, then navigate to App
     setTimeout(() => {
       this.props.navigation.navigate('App');
-    }, FIVE_SECONDS);
+    }, TWO_SECONDS);
   }
 
   render() {
