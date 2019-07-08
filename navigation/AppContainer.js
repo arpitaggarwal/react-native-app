@@ -8,7 +8,7 @@ import IconWithBadge from '../icons/IconWithBadge';
 import HomeIconWithBadge from '../icons/HomeIconWithBadge';
 
 import SplashScreen from '../screens/SplashScreen';
-
+import LoginScreen from '../screens/LoginScreen';
 
 const AppNavigationStack = createStackNavigator({
   About: { screen: About},
@@ -49,6 +49,7 @@ const TabNavigator = createBottomTabNavigator({
 
 const RootNavigator = createSwitchNavigator({
   App: TabNavigator,
+  LoginScreen: LoginScreen,
   Splash: SplashScreen
 }, {
   initialRouteName: 'Splash'

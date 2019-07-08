@@ -28,10 +28,13 @@ export default class Initializing extends React.Component {
 
   render() {
     return (
-         <ListViewScreen />
-      // <View style={styles.container}>
-      //   <Text style={styles.welcome}>Loading</Text>
-      // </View>
+
+           <ListViewScreen />
+
+      // Loading message commented for list(s)
+        // <View style={styles.container}>
+        //   <Text style={styles.welcome}>Loading</Text>
+        // </View>
     )
   }
 }

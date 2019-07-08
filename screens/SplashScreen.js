@@ -7,7 +7,7 @@ export default class SplashScreen extends React.Component {
   componentDidMount() {
     // When mounted, wait one second, then navigate to App
     setTimeout(() => {
-      this.props.navigation.navigate('App');
+      this.props.navigation.navigate('LoginScreen');
     }, TWO_SECONDS);
   }
 

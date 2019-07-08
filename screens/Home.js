@@ -5,10 +5,11 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import ExpandableList from './expandable_list.js'
 
 export class Home extends Component {
+
   render() {
     return (
-      <ExpandableList />
 
+      <ExpandableList />
 
     //   <View style={styles.container}>
      //

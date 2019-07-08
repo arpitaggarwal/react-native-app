@@ -73,6 +73,12 @@ keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -sto
 
 https://github.com/react-native-community/react-native-google-signin/issues/688
 
+# Run the logger
+
+```
+react-native log-ios       
+react-native log-android  
+```
 
 # References:
 
