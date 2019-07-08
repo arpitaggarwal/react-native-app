@@ -63,6 +63,19 @@ https://jsonplaceholder.typicode.com/users
 - Go to `android/app/src/main`
 - Edit `AndroidManifest.xml`
 
+# Generate SHA1
+
+```
+keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+```
+
+# Fix for Google Sign In Library
+
+https://github.com/react-native-community/react-native-google-signin/issues/688
+
+
 # References:
 
 - https://alligator.io/react/react-native-navigation/
+
+- https://aboutreact.com/example-of-google-sign-in-in-react-native/
