@@ -5,7 +5,7 @@ import {
   StyleSheet,
   AsyncStorage
 } from 'react-native'
-import ListViewScreen from '../list-view-screen.js'
+import ListViewScreen from './list-view-screen.js'
 //import { goToAuth, goHome } from './Navigation'
 
 //import { USER_KEY } from './config'

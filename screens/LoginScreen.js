@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, Alert } from 'react-native';
-
+import { StyleSheet, Text, View, Button, Alert, TouchableOpacity} from 'react-native';
+import { NavigationActions, StackActions } from "react-navigation";
 import {
   GoogleSignin,
   GoogleSigninButton,
@@ -24,7 +24,7 @@ export class LoginScreen extends Component {
         scopes: ['https://www.googleapis.com/auth/drive.readonly'],
         // Repleace with your webClientId generated from Firebase console
         webClientId:
-          'Web Client ID',
+          '637354362427-tev6rqihk89aosm1iqbjcust5fb8hvrh.apps.googleusercontent.com',
           offlineAccess: true
       });
     }
@@ -40,7 +40,8 @@ export class LoginScreen extends Component {
       const userInfo = await GoogleSignin.signIn();
       console.log('User Info --> ', userInfo);
       this.setState({ userInfo: userInfo });
-      this.props.navigation.navigate('App');
+      this.props.navigation.navigate('App', {userInfo: "Hello",});
+      console.log('User Info --> ', userInfo.name);
     } catch (error) {
       console.log('Message', error.message);
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
@@ -88,17 +89,38 @@ export class LoginScreen extends Component {
     }
   };
 
+  resetToDashboard() {
+      this.props.navigation.dispatch(
+        StackActions.reset({
+          index: 0,
+          actions: [NavigationActions.navigate({ routeName: "Dashboard" })]
+        })
+      );
+    }
+
   render() {
+    const { navigation } = this.props;
     return (
 
+      // <View style={styles.container}>
+      //         <GoogleSigninButton
+      //           style={{ width: 312, height: 48 }}
+      //           size={GoogleSigninButton.Size.Wide}
+      //           color={GoogleSigninButton.Color.Light}
+      //           onPress={this._signIn}
+      //         />
+      // </View>
+
+
       <View style={styles.container}>
-              <GoogleSigninButton
-                style={{ width: 312, height: 48 }}
-                size={GoogleSigninButton.Size.Wide}
-                color={GoogleSigninButton.Color.Light}
-                onPress={this._signIn}
-              />
-      </View>
+       <Text style={styles.welcome}>Login</Text>
+       <TouchableOpacity onPress={() => this.resetToDashboard()}>
+         <Text style={[styles.link, { color: "blue" }]}>Go to Dashboard</Text>
+       </TouchableOpacity>
+       <TouchableOpacity onPress={() => navigation.goBack()}>
+         <Text style={styles.link}>Go Back</Text>
+       </TouchableOpacity>
+     </View>
 
     //   <View style={styles.container}>
      //

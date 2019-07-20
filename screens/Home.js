@@ -1,36 +1,51 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 
 import ExpandableList from './expandable_list.js'
 
-export class Home extends Component {
-
+export default class Home extends Component {
   render() {
+    const { navigate } = this.props.navigation;
     return (
-
-      <ExpandableList />
-
-    //   <View style={styles.container}>
-     //
-    //      <Button
-    //        title="About Page"
-    //        onPress={() =>
-    //          this.props.navigation.navigate('About')
-    //        }
-    //      />
-    //  </View>
-    )
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          {/* Futuristic News App) */}
+          Welcome to FUNA!
+        </Text>
+        <View style={styles.wrapper}>
+          <TouchableOpacity onPress={() => navigate("Login")}>
+            <Text style={styles.link}>Login</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigate("Signup")}>
+            <Text style={styles.link}>Signup</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
   }
 }
 
-export default Home
-
 const styles = StyleSheet.create({
-   container: {
-     flex: 1,
-     backgroundColor: '#fff',
-     alignItems: 'center',
-     justifyContent: 'center',
-   },
- });
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF"
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: "center",
+    margin: 10
+  },
+  wrapper: {
+    flexDirection: "row"
+  },
+  link: {
+    fontSize: 16,
+    textAlign: "center",
+    color: "blue",
+    marginBottom: 5,
+    margin: 10
+  }
+});

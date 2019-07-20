@@ -10,6 +10,9 @@ import HomeIconWithBadge from '../icons/HomeIconWithBadge';
 import SplashScreen from '../screens/SplashScreen';
 import LoginScreen from '../screens/LoginScreen';
 
+import AppStackNav from '../navigation/AppStackNav';
+
+
 const AppNavigationStack = createStackNavigator({
   About: { screen: About},
   Initializing: { screen: Initializing },
@@ -55,6 +58,6 @@ const RootNavigator = createSwitchNavigator({
   initialRouteName: 'Splash'
 });
 
-const AppContainer = createAppContainer(RootNavigator);
-
+//const AppContainer = createAppContainer(RootNavigator);
+const AppContainer = createAppContainer(AppStackNav);
 export default AppContainer;
